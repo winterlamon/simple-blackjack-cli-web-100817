@@ -1,4 +1,4 @@
-require 'pry'
+
 
 def welcome
   puts "Welcome to the Blackjack Table"
@@ -27,7 +27,6 @@ end
 def initial_round
   card_total = deal_card + deal_card
   return card_total
-  binding.pry
   display_card_total(card_total)
 end
 
@@ -36,13 +35,15 @@ def hit?(current_card_total)
   get_user_input
   case get_user_input
     when "s"
+      return card_total
     when "h"
       deal_card
+      return card_total
     else
       invalid_command
       prompt_user
+      return card_total
   end
-    return current_card_total
 end
 
 def invalid_command
