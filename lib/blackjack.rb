@@ -32,17 +32,16 @@ end
 
 def hit?(card_total)
   prompt_user
-  get_user_input
-  case get_user_input
+  input = get_user_input
+  case input
     when "s"
       return card_total
     when "h"
-      deal_card
+      card_total += deal_card
       return card_total
     else
       invalid_command
       prompt_user
-      return card_total
   end
 end
 
